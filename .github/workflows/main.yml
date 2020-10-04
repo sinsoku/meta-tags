@@ -18,6 +18,8 @@ jobs:
           - 5.1.6
           - 5.2.2
           - 6.0.0
+          - edge
+    continue-on-error: ${{ matrix.rails == 'edge' }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby

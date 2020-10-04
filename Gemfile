@@ -2,10 +2,14 @@
 
 source 'https://rubygems.org'
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
 # Specify your gem's dependencies in meta-tags.gemspec
 gemspec
 
-if ENV['RAILS_VERSION']
+if ENV['RAILS_VERSION'] == 'edge'
+  gem 'railties', github: 'rails/rails'
+elsif ENV['RAILS_VERSION']
   # Install specified version of actionpack if requested
   gem 'railties', "~> #{ENV['RAILS_VERSION']}"
 end
